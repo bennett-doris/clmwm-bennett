@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>吃了么-注册</title>
+    <link href="{% static 'css/inc.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/register.js %}' %}"></script>
+</head>
+<body>
+<div class = 'top'>
+    <div class="top1">
+   </div>
+    <a href="{% url 'goods:index' %}"><img src="{% static 'image/logo.gif' %}"></a>
+    <span class="reg_href">已有吃了么账号？<a href="{% url 'user:login' %}">登录</a></span>
+</div>
+<div id="register_main">
+{#  该表单上传数据包含图片，需要修改entype属性  #}
+{#   action 的默认值为当前页面   #}
+    <form action="" method="post" enctype="multipart/form-data" id="register" name="register">
+        {% csrf_token %}
+        <ul>
+            <li>
+                <span>账号</span>
+                <input type="text" name="user_name" id="user_name">
+                <small id="is_confirm"></small>
+            </li>
+            <li>
+                <span>用户密码</span>
+                <input type="password" name="pwd" id="pwd">
+            </li>
+            <li>
+                <span>确认密码</span>
+                <input type="password" name="cpwd" id="cpwd">
+            </li>
+            <li>
+                <span>真实姓名</span>
+                <input type="text" name="real_name" id="real_name">
+            </li>
+            <li>
+                <span>联系电话</span>
+                <input type="text" name="phone" id="phone">
+            </li>
+            <li>
+                <span>地址</span>
+                <input type="text" name="addr" id="addr">
+            </li>
+            <li>
+                <span>邮箱</span>
+                <input type="email" name="email" id="email">
+            </li>
+            <li>
+                <span>性别</span>
+                <input type="radio"  name="sex" value="1" checked/>
+                <span>男</span>
+                <input type="radio"  name="sex" value="0" >
+                <span>女</span>
+            </li>
+            <li>
+                <span>用户类型</span>
+                <input type="radio"  name="mjsj" value="0" checked/>
+                <span>买家</span>
+                <input type="radio"  name="mjsj" value="1" >
+                <span>商家</span>
+            </li>
+            <li>
+                <span>头像</span>
+                <div class="img_yulan">
+                    <img id="preview" />
+                </div>
+                <input type="file" name="file">
+            </li>
+        </ul>
+    </form>
+    <button class="agree_btn">同意以下协议并注册</button>
+    {{ errmsg }}
+</div>
+{# 尾部  #}
+<footer>
+<div class="foot_nav">
+    <a href="index.html">首页</a>|<a href="wm_index.html">外卖</a>|<a href="wm_index.html">中餐</a>|<a href="wm_index.html">西餐</a>|<a href="wm_index.html">水果</a><a href="wm_index.html">饮品</a>
+</div>
+<div class="copy_ri">
+    <p>开源项目©2020  项目地址：http:github.com</p>
+     <img src=""></div>
+</div>
+</footer>
+</body>
+</html>
